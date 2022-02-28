@@ -7,6 +7,7 @@ import (
 	"io/ioutil";
 	"os";
 	"regexp";
+	"strconv";
 	)
 
 func check(e error) {
@@ -22,13 +23,13 @@ func openAndReadFile(file string) string {
 }
 
 func parseOutNumbers(code string) string {
-        if len(code) == 0 {
-                return "";
-        }else if regexp.MustCompile(`^[0-9]`).MatchString(string(code[0])){
-		return string(code[0])  + parseOutNumbers(code[1:]);
-        }else{
-		return " " + parseOutNumbers(code[1:]);
+	result := "";
+	numArray := regexp.MustCompile(`[0-9]+`).FindAll([]byte(code), -1);
+	for _,num := range numArray {
+		intNum, _ := strconv.Atoi(string(num));
+		result = result + string(intNum);
 	}
+	return result;
 }
 
 func writeFile(file string, text string) {
