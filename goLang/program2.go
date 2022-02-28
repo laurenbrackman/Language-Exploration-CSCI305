@@ -26,7 +26,8 @@ func parseOutNumbers(code string) string {
 	result := "";
 	numArray := regexp.MustCompile(`[0-9]+`).FindAll([]byte(code), -1);
 	for _,num := range numArray {
-		intNum, _ := strconv.Atoi(string(num));
+		intNum, err := strconv.Atoi(string(num));
+		check(err);
 		result = result + string(intNum);
 	}
 	return result;
