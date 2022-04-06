@@ -2,14 +2,14 @@ data class Peak (var name: String, val latitude: Double, val longitude: Double)
 
 fun listPeaks() : 
 List<Peak> {return listOf(
-		Peak( "Gallatin Peak",45.3683,-111.3658),
+	Peak( "Gallatin Peak",45.3683,-111.3658),
         Peak("Granite Peak",45.1633,-109.8080),
         Peak("Whitetail Peak",45.0888,109.5877),
         Peak("Pikes Peak",38.8409,-105.0423),
         Peak("Mount Rainier", 46.879967, -121.726906))}
 
 fun distanceFromBozeman(peak: Peak) : Double {
-		return haversine( 45.6770, -111.0429, peak.latitude, peak.longitude)}
+	return haversine( 45.6770, -111.0429, peak.latitude, peak.longitude)}
 
 //The following is the haversine function you should incorporate to find the distances.
 //Calculates the distance in km between two points on a globe
@@ -47,7 +47,7 @@ fun main() {
     	var distance = peakLocations.filter { peak -> distanceFromBozeman(peak) > 500 }
     	for (peak in distance) {
         	println(peak.name)
-		}
+	}
 
     	println("\n" + "**********Step Six**********")
     	var western = peakLocations.filter { it -> it.longitude > -109.9541 }.map { it -> it.name }
