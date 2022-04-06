@@ -4,7 +4,7 @@ fun listPeaks() :
 List<Peak> {return listOf(
 	Peak( "Gallatin Peak",45.3683,-111.3658),
         Peak("Granite Peak",45.1633,-109.8080),
-        Peak("Whitetail Peak",45.0888,109.5877),
+        Peak("Whitetail Peak",45.0888,-109.5877),
         Peak("Pikes Peak",38.8409,-105.0423),
         Peak("Mount Rainier", 46.879967, -121.726906))}
 
@@ -50,7 +50,7 @@ fun main() {
 	}
 
     	println("\n" + "**********Step Six**********")
-    	var western = peakLocations.filter { it -> it.longitude > -109.9541 }.map { it -> it.name }
+    	var western = peakLocations.filter { it -> it.longitude < -109.9541 }.map { it -> it.name }
     	println(western)
 
 
