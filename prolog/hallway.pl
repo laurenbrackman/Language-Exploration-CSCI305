@@ -1,7 +1,7 @@
-dorm([room(_, 5), room(_, 4), room(_, 3), room(_, 2), room(_, 1)]).
+layout([room(_, 5), room(_, 4), room(_, 3), room(_, 2), room(_, 1)]).
 adjacent(X,Y):- X is Y+1; X is Y-1.
 
-hallway(X) :- dorm(X),
+hallway(X) :- layout(X),
 	     member(room(hunter,A),X),
  	     member(room(laura, B),X),
 	     member(room(arnie, C),X),  
